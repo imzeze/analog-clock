@@ -7,11 +7,5 @@ export const Wrapper = styled.div`
   border: 1px solid black;
   border-radius: 50%;
   padding: 12px;
-
-  > div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: bottom;
-  }
+  margin: 100px;
 `;
