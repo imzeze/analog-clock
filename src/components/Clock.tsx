@@ -13,8 +13,8 @@ export default function Clock() {
 
   const showTooltip = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setPosition({
-      x: e.pageX,
-      y: e.pageY,
+      x: e.clientX,
+      y: e.clientY,
     });
   };
 
