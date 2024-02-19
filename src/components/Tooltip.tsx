@@ -4,8 +4,8 @@ import * as S from '@/styles/Tooltip.style';
 import { useRecoilValue } from 'recoil';
 
 export default function Tooltip() {
-  const time = useRecoilValue(nowState);
+  const now = useRecoilValue(nowState);
   const position = useRecoilValue(positionState);
 
-  return <S.Wrapper position={position}>{time.toLocaleTimeString()}</S.Wrapper>;
+  return <S.Wrapper position={position}>{now.toLocaleTimeString()}</S.Wrapper>;
 }

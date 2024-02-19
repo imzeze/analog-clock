@@ -1,19 +1,21 @@
 import { nowState } from '@/recoil/date';
 import { useRecoilValue } from 'recoil';
 import * as S from '@/styles/HandList.style';
+import { TIME } from '@/constants/time';
 
 export default function HandList() {
-  const time = useRecoilValue(nowState);
+  const now = useRecoilValue(nowState);
   const hour =
-    (time.getHours() % 12) * 30 + Math.floor(time.getMinutes() / 12) * 6;
-  const minute = time.getMinutes() * 6;
-  const second = time.getSeconds() * 6;
+    (now.getHours() % TIME.LENGTH) * TIME.HOUR_ANGLE +
+    Math.floor(now.getMinutes() / TIME.LENGTH) * TIME.MINUTE_ANGLE;
+  const minute = now.getMinutes() * TIME.MINUTE_ANGLE;
+  const second = now.getSeconds() * TIME.MINUTE_ANGLE;
 
   return (
-    <>
-      <S.Hand type="hour" angle={hour} />
-      <S.Hand type="minute" angle={minute} />
-      <S.Hand type="second" angle={second} />
-    </>
+    <div>
+      <S.HourHand angle={hour} />
+      <S.MinuteHand angle={minute} />
+      <S.SecondHand angle={second} />
+    </div>
   );
 }
