@@ -7,7 +7,7 @@ export const useTime = () => {
   const setNow = useSetRecoilState(nowState);
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    timerRef.current = window.setInterval(() => {
       setNow(new Date());
     }, 1000);
 
